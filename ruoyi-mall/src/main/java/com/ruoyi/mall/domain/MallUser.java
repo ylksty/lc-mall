@@ -11,7 +11,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 用户对象 mall_user
  * 
  * @author yanglk
- * @date 2021-03-16
+ * @date 2021-03-17
  */
 public class MallUser extends BaseEntity
 {
@@ -72,7 +72,7 @@ public class MallUser extends BaseEntity
 
     /** 0 可用, 1 禁用, 2 注销 */
     @Excel(name = "0 可用, 1 禁用, 2 注销")
-    private Integer status;
+    private String status;
 
     /** 创建时间 */
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -200,12 +200,12 @@ public class MallUser extends BaseEntity
     {
         return sessionKey;
     }
-    public void setStatus(Integer status) 
+    public void setStatus(String status) 
     {
         this.status = status;
     }
 
-    public Integer getStatus() 
+    public String getStatus() 
     {
         return status;
     }

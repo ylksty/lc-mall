@@ -7,7 +7,7 @@ import com.ruoyi.mall.domain.MallUser;
  * 用户Service接口
  * 
  * @author yanglk
- * @date 2021-03-16
+ * @date 2021-03-17
  */
 public interface IMallUserService 
 {

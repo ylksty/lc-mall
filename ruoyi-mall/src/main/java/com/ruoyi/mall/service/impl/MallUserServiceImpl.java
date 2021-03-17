@@ -12,7 +12,7 @@ import com.ruoyi.mall.service.IMallUserService;
  * 用户Service业务层处理
  * 
  * @author yanglk
- * @date 2021-03-16
+ * @date 2021-03-17
  */
 @Service
 public class MallUserServiceImpl implements IMallUserService 

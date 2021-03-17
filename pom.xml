@@ -204,6 +204,13 @@
             <!-- 店铺模块-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-demo</artifactId>
+                <version>1.0</version>
+            </dependency>
+
+            <!-- 店铺模块-->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
                 <artifactId>ruoyi-mall</artifactId>
                 <version>1.0</version>
             </dependency>
@@ -226,6 +233,7 @@
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
         <module>ruoyi-mall</module>
+        <module>ruoyi-demo</module>
     </modules>
     <packaging>pom</packaging>
 

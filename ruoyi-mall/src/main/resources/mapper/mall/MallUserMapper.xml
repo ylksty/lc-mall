@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="avatar != null  and avatar != ''"> and avatar = #{avatar}</if>
             <if test="weixinOpenid != null  and weixinOpenid != ''"> and weixin_openid = #{weixinOpenid}</if>
             <if test="sessionKey != null  and sessionKey != ''"> and session_key = #{sessionKey}</if>
-            <if test="status != null "> and status = #{status}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
             <if test="addTime != null "> and add_time = #{addTime}</if>
             <if test="deleted != null "> and deleted = #{deleted}</if>
         </where>
@@ -69,7 +69,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="avatar != null and avatar != ''">avatar,</if>
             <if test="weixinOpenid != null and weixinOpenid != ''">weixin_openid,</if>
             <if test="sessionKey != null and sessionKey != ''">session_key,</if>
-            <if test="status != null">status,</if>
+            <if test="status != null and status != ''">status,</if>
             <if test="addTime != null">add_time,</if>
             <if test="updateTime != null">update_time,</if>
             <if test="deleted != null">deleted,</if>
@@ -87,7 +87,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="avatar != null and avatar != ''">#{avatar},</if>
             <if test="weixinOpenid != null and weixinOpenid != ''">#{weixinOpenid},</if>
             <if test="sessionKey != null and sessionKey != ''">#{sessionKey},</if>
-            <if test="status != null">#{status},</if>
+            <if test="status != null and status != ''">#{status},</if>
             <if test="addTime != null">#{addTime},</if>
             <if test="updateTime != null">#{updateTime},</if>
             <if test="deleted != null">#{deleted},</if>
@@ -109,7 +109,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="avatar != null and avatar != ''">avatar = #{avatar},</if>
             <if test="weixinOpenid != null and weixinOpenid != ''">weixin_openid = #{weixinOpenid},</if>
             <if test="sessionKey != null and sessionKey != ''">session_key = #{sessionKey},</if>
-            <if test="status != null">status = #{status},</if>
+            <if test="status != null and status != ''">status = #{status},</if>
             <if test="addTime != null">add_time = #{addTime},</if>
             <if test="updateTime != null">update_time = #{updateTime},</if>
             <if test="deleted != null">deleted = #{deleted},</if>

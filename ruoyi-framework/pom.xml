@@ -59,6 +59,12 @@
             <artifactId>ruoyi-system</artifactId>
         </dependency>
 
+        <!-- demo模块-->
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>ruoyi-demo</artifactId>
+        </dependency>
+
         <!-- 店铺模块-->
         <dependency>
             <groupId>com.ruoyi</groupId>

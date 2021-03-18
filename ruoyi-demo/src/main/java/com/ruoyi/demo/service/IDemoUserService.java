@@ -14,10 +14,10 @@ public interface IDemoUserService
     /**
      * 查询用户信息
      * 
-     * @param userId 用户信息ID
+     * @param id 用户信息ID
      * @return 用户信息
      */
-    public DemoUser selectDemoUserById(Long userId);
+    public DemoUser selectDemoUserById(Long id);
 
     /**
      * 查询用户信息列表
@@ -46,16 +46,16 @@ public interface IDemoUserService
     /**
      * 批量删除用户信息
      * 
-     * @param userIds 需要删除的用户信息ID
+     * @param ids 需要删除的用户信息ID
      * @return 结果
      */
-    public int deleteDemoUserByIds(Long[] userIds);
+    public int deleteDemoUserByIds(Long[] ids);
 
     /**
      * 删除用户信息信息
      * 
-     * @param userId 用户信息ID
+     * @param id 用户信息ID
      * @return 结果
      */
-    public int deleteDemoUserById(Long userId);
+    public int deleteDemoUserById(Long id);
 }

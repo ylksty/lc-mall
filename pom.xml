@@ -234,6 +234,7 @@
         <module>ruoyi-common</module>
         <module>ruoyi-mall</module>
         <module>ruoyi-demo</module>
+        <module>mall-wx-api</module>
     </modules>
     <packaging>pom</packaging>
 

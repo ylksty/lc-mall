@@ -27,13 +27,13 @@ public class DemoUserServiceImpl implements IDemoUserService
     /**
      * 查询用户信息
      * 
-     * @param userId 用户信息ID
+     * @param id 用户信息ID
      * @return 用户信息
      */
     @Override
-    public DemoUser selectDemoUserById(Long userId)
+    public DemoUser selectDemoUserById(Long id)
     {
-        return demoUserMapper.selectDemoUserById(userId);
+        return demoUserMapper.selectDemoUserById(id);
     }
 
     /**
@@ -75,7 +75,7 @@ public class DemoUserServiceImpl implements IDemoUserService
     public int updateDemoUser(DemoUser demoUser)
     {
         demoUser.setUpdateTime(DateUtils.getNowDate());
-        demoUserMapper.deleteDemoOrderByUserId(demoUser.getUserId());
+        demoUserMapper.deleteDemoOrderByUserId(demoUser.getId());
         insertDemoOrder(demoUser);
         return demoUserMapper.updateDemoUser(demoUser);
     }
@@ -83,28 +83,28 @@ public class DemoUserServiceImpl implements IDemoUserService
     /**
      * 批量删除用户信息
      * 
-     * @param userIds 需要删除的用户信息ID
+     * @param ids 需要删除的用户信息ID
      * @return 结果
      */
     @Transactional
     @Override
-    public int deleteDemoUserByIds(Long[] userIds)
+    public int deleteDemoUserByIds(Long[] ids)
     {
-        demoUserMapper.deleteDemoOrderByUserIds(userIds);
-        return demoUserMapper.deleteDemoUserByIds(userIds);
+        demoUserMapper.deleteDemoOrderByUserIds(ids);
+        return demoUserMapper.deleteDemoUserByIds(ids);
     }
 
     /**
      * 删除用户信息信息
      * 
-     * @param userId 用户信息ID
+     * @param id 用户信息ID
      * @return 结果
      */
     @Override
-    public int deleteDemoUserById(Long userId)
+    public int deleteDemoUserById(Long id)
     {
-        demoUserMapper.deleteDemoOrderByUserId(userId);
-        return demoUserMapper.deleteDemoUserById(userId);
+        demoUserMapper.deleteDemoOrderByUserId(id);
+        return demoUserMapper.deleteDemoUserById(id);
     }
 
     /**
@@ -115,13 +115,13 @@ public class DemoUserServiceImpl implements IDemoUserService
     public void insertDemoOrder(DemoUser demoUser)
     {
         List<DemoOrder> demoOrderList = demoUser.getDemoOrderList();
-        Long userId = demoUser.getUserId();
+        Long id = demoUser.getId();
         if (StringUtils.isNotNull(demoOrderList))
         {
             List<DemoOrder> list = new ArrayList<DemoOrder>();
             for (DemoOrder demoOrder : demoOrderList)
             {
-                demoOrder.setUserId(userId);
+                demoOrder.setUserId(id);
                 list.add(demoOrder);
             }
             if (list.size() > 0)

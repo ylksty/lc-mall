@@ -17,7 +17,7 @@ public class DemoUser extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 用户ID */
-    private Long userId;
+    private Long id;
 
     /** 部门ID */
     @Excel(name = "部门ID")
@@ -41,14 +41,14 @@ public class DemoUser extends BaseEntity
     /** 订单信息 */
     private List<DemoOrder> demoOrderList;
 
-    public void setUserId(Long userId) 
+    public void setId(Long id) 
     {
-        this.userId = userId;
+        this.id = id;
     }
 
-    public Long getUserId() 
+    public Long getId() 
     {
-        return userId;
+        return id;
     }
     public void setDeptId(Long deptId) 
     {
@@ -109,7 +109,7 @@ public class DemoUser extends BaseEntity
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("userId", getUserId())
+            .append("id", getId())
             .append("deptId", getDeptId())
             .append("userName", getUserName())
             .append("sex", getSex())

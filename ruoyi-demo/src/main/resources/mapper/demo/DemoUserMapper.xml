@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.ruoyi.demo.mapper.DemoUserMapper">
     
     <resultMap type="DemoUser" id="DemoUserResult">
-        <result property="userId"    column="user_id"    />
+        <result property="id"    column="id"    />
         <result property="deptId"    column="dept_id"    />
         <result property="userName"    column="user_name"    />
         <result property="sex"    column="sex"    />
@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectDemoUserVo">
-        select user_id, dept_id, user_name, sex, status, create_time, update_time, del_flag, remark from demo_user
+        select id, dept_id, user_name, sex, status, create_time, update_time, del_flag, remark from demo_user
     </sql>
 
     <select id="selectDemoUserList" parameterType="DemoUser" resultMap="DemoUserResult">
@@ -44,14 +44,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     <select id="selectDemoUserById" parameterType="Long" resultMap="DemoUserDemoOrderResult">
-        select a.user_id, a.dept_id, a.user_name, a.sex, a.status, a.create_time, a.update_time, a.del_flag, a.remark,
+        select a.id, a.dept_id, a.user_name, a.sex, a.status, a.create_time, a.update_time, a.del_flag, a.remark,
             b.id, b.user_id, b.order_status, b.add_time, b.update_time, b.deleted
         from demo_user a
-        left join demo_order b on b.user_id = a.user_id
-        where a.user_id = #{userId}
+        left join demo_order b on b.user_id = a.id
+        where a.id = #{id}
     </select>
         
-    <insert id="insertDemoUser" parameterType="DemoUser" useGeneratedKeys="true" keyProperty="userId">
+    <insert id="insertDemoUser" parameterType="DemoUser" useGeneratedKeys="true" keyProperty="id">
         insert into demo_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="deptId != null">dept_id,</if>
@@ -87,17 +87,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="delFlag != null">del_flag = #{delFlag},</if>
             <if test="remark != null">remark = #{remark},</if>
         </trim>
-        where user_id = #{userId}
+        where id = #{id}
     </update>
 
     <delete id="deleteDemoUserById" parameterType="Long">
-        delete from demo_user where user_id = #{userId}
+        delete from demo_user where id = #{id}
     </delete>
 
     <delete id="deleteDemoUserByIds" parameterType="String">
-        delete from demo_user where user_id in 
-        <foreach item="userId" collection="array" open="(" separator="," close=")">
-            #{userId}
+        delete from demo_user where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
         </foreach>
     </delete>
     

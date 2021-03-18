@@ -62,10 +62,10 @@ public class DemoUserController extends BaseController
      * 获取用户信息详细信息
      */
     @PreAuthorize("@ss.hasPermi('demo:user:query')")
-    @GetMapping(value = "/{userId}")
-    public AjaxResult getInfo(@PathVariable("userId") Long userId)
+    @GetMapping(value = "/{id}")
+    public AjaxResult getInfo(@PathVariable("id") Long id)
     {
-        return AjaxResult.success(demoUserService.selectDemoUserById(userId));
+        return AjaxResult.success(demoUserService.selectDemoUserById(id));
     }
 
     /**
@@ -95,9 +95,9 @@ public class DemoUserController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('demo:user:remove')")
     @Log(title = "用户信息", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{userIds}")
-    public AjaxResult remove(@PathVariable Long[] userIds)
+	@DeleteMapping("/{ids}")
+    public AjaxResult remove(@PathVariable Long[] ids)
     {
-        return toAjax(demoUserService.deleteDemoUserByIds(userIds));
+        return toAjax(demoUserService.deleteDemoUserByIds(ids));
     }
 }

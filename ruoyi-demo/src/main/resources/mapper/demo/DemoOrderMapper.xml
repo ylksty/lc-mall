@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.demo.mapper.DemoOrderMapper">
+    
+    <resultMap type="DemoOrder" id="DemoOrderResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="orderStatus"    column="order_status"    />
+        <result property="addTime"    column="add_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="deleted"    column="deleted"    />
+    </resultMap>
+
+    <sql id="selectDemoOrderVo">
+        select id, user_id, order_status, add_time, update_time, deleted from demo_order
+    </sql>
+
+    <select id="selectDemoOrderList" parameterType="DemoOrder" resultMap="DemoOrderResult">
+        <include refid="selectDemoOrderVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="orderStatus != null  and orderStatus != ''"> and order_status = #{orderStatus}</if>
+            <if test="addTime != null "> and add_time = #{addTime}</if>
+            <if test="deleted != null  and deleted != ''"> and deleted = #{deleted}</if>
+        </where>
+    </select>
+    
+    <select id="selectDemoOrderById" parameterType="Long" resultMap="DemoOrderResult">
+        <include refid="selectDemoOrderVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDemoOrder" parameterType="DemoOrder" useGeneratedKeys="true" keyProperty="id">
+        insert into demo_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="orderStatus != null and orderStatus != ''">order_status,</if>
+            <if test="addTime != null">add_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="deleted != null">deleted,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="orderStatus != null and orderStatus != ''">#{orderStatus},</if>
+            <if test="addTime != null">#{addTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="deleted != null">#{deleted},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDemoOrder" parameterType="DemoOrder">
+        update demo_order
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="orderStatus != null and orderStatus != ''">order_status = #{orderStatus},</if>
+            <if test="addTime != null">add_time = #{addTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="deleted != null">deleted = #{deleted},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDemoOrderById" parameterType="Long">
+        delete from demo_order where id = #{id}
+    </delete>
+
+    <delete id="deleteDemoOrderByIds" parameterType="String">
+        delete from demo_order where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

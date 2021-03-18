@@ -1,0 +1,4 @@
+<view class="flex flex-direction justify-center main">
+  <button class="cu-btn round bg-green shadow lg margin-bottom-lg" open-type="getUserInfo" bindgetuserinfo="wxLogin">微信授权登录</button>
+  <button class="cu-btn round bg-green shadow lg" bindtap="accountLogin">账号登录</button>
+</view>

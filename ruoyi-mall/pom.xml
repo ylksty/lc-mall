@@ -12,6 +12,9 @@
     <artifactId>ruoyi-mall</artifactId>
     <version>1.0</version>
 
+    <description>
+        商城模块
+    </description>
     <dependencies>
 
         <!-- 通用工具-->

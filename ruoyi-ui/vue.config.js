@@ -34,9 +34,11 @@ module.exports = {
     proxy: {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [process.env.VUE_APP_BASE_API]: {
+        // yg 这里转发到
         target: `http://localhost:8080`,
         changeOrigin: true,
         pathRewrite: {
+          // yg 这里把 dev-api 去掉
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
       }

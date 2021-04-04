@@ -58,7 +58,4 @@ public interface MallUserMapper
      * @return 结果
      */
     public int deleteMallUserByIds(Long[] ids);
-
-    MallUser selectMallUserByOpenid(String oprnid);
-
 }

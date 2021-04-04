@@ -1,15 +1,15 @@
-package com.ruoyi.mall.mapper;
+package com.ruoyi.mall.service;
 
 import java.util.List;
 import com.ruoyi.mall.domain.MallUser;
 
 /**
- * 用户Mapper接口
+ * 用户Service接口
  * 
  * @author yanglk
  * @date 2021-04-04
  */
-public interface MallUserMapper 
+public interface IMallUserService 
 {
     /**
      * 查询用户
@@ -44,21 +44,18 @@ public interface MallUserMapper
     public int updateMallUser(MallUser mallUser);
 
     /**
-     * 删除用户
+     * 批量删除用户
+     * 
+     * @param ids 需要删除的用户ID
+     * @return 结果
+     */
+    public int deleteMallUserByIds(Long[] ids);
+
+    /**
+     * 删除用户信息
      * 
      * @param id 用户ID
      * @return 结果
      */
     public int deleteMallUserById(Long id);
-
-    /**
-     * 批量删除用户
-     * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
-     */
-    public int deleteMallUserByIds(Long[] ids);
-
-    MallUser selectMallUserByOpenid(String oprnid);
-
 }

@@ -36,7 +36,7 @@ public class MallUser extends BaseEntity
 
     /** 最近一次登录时间 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "最近一次登录时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss")
+    @Excel(name = "最近一次登录时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date lastLoginTime;
 
     /** 最近一次登录IP地址 */

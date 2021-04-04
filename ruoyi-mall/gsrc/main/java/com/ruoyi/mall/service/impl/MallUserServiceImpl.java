@@ -53,9 +53,7 @@ public class MallUserServiceImpl implements IMallUserService
     @Override
     public int insertMallUser(MallUser mallUser)
     {
-        mallUser.setLastLoginTime(DateUtils.getNowDate());
         mallUser.setCreateTime(DateUtils.getNowDate());
-        mallUser.setUpdateTime(DateUtils.getNowDate());
         return mallUserMapper.insertMallUser(mallUser);
     }
 
@@ -68,7 +66,6 @@ public class MallUserServiceImpl implements IMallUserService
     @Override
     public int updateMallUser(MallUser mallUser)
     {
-        mallUser.setLastLoginTime(DateUtils.getNowDate());
         mallUser.setUpdateTime(DateUtils.getNowDate());
         return mallUserMapper.updateMallUser(mallUser);
     }
@@ -95,17 +92,5 @@ public class MallUserServiceImpl implements IMallUserService
     public int deleteMallUserById(Long id)
     {
         return mallUserMapper.deleteMallUserById(id);
-    }
-
-
-    /**
-     * @author joe 2021/4/4 11:16
-     * 根据openid查询用户
-     * @param oprnid: oprnid
-     * @return {@link MallUser }
-     **/
-    @Override
-    public MallUser selectMallUserByOpenid(String oprnid) {
-        return mallUserMapper.selectMallUserByOpenid(oprnid);
     }
 }

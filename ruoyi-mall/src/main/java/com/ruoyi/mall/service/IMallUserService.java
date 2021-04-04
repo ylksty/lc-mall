@@ -7,7 +7,7 @@ import com.ruoyi.mall.domain.MallUser;
  * 用户Service接口
  * 
  * @author yanglk
- * @date 2021-03-17
+ * @date 2021-04-04
  */
 public interface IMallUserService 
 {
@@ -58,4 +58,12 @@ public interface IMallUserService
      * @return 结果
      */
     public int deleteMallUserById(Long id);
+
+    /**
+     * @author joe 2021/4/4 11:03
+     * 根据openid查询用户
+     * @param oprnid: oprnid
+     * @return {@link MallUser }
+     **/
+    public MallUser selectMallUserByOpenid(String oprnid);
 }

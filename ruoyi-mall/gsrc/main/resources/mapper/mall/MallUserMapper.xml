@@ -47,12 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectMallUserVo"/>
         where id = #{id}
     </select>
-
-    <select id="selectMallUserByOpenid" parameterType="String" resultMap="MallUserResult">
-        <include refid="selectMallUserVo"/>
-        where openid = #{openid}
-    </select>
-
+        
     <insert id="insertMallUser" parameterType="MallUser" useGeneratedKeys="true" keyProperty="id">
         insert into mall_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
